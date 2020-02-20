@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Demo.Models;
 using Demo.Services;
+using Demo.Views;
 using MvvmHelpers;
 using Xamarin.Forms;
 using static Demo.Constant.Constant;
@@ -58,6 +59,7 @@ namespace Demo.ViewModels
             if (result)
             {
                 await Application.Current.MainPage.DisplayAlert("Success", "Product Accepeted", "ok");
+                await Application.Current.MainPage.Navigation.PushAsync(new ProductView(3, "Aprroved Product"));
             }
             else {
                 await Application.Current.MainPage.DisplayAlert("Error", "Please try again", "ok");
@@ -70,6 +72,7 @@ namespace Demo.ViewModels
             if (result)
             {
                 await Application.Current.MainPage.DisplayAlert("Success", "Product Rejected", "ok");
+                await Application.Current.MainPage.Navigation.PushAsync(new ProductView(2, "Pending Product"));
             }
             else
             {

@@ -13,11 +13,11 @@ namespace Demo.Views
         int number;
 
         StatusUpdateModel s = new StatusUpdateModel();
-        public UsersView(int num)
+        public UsersView(int num, string title)
         {
             InitializeComponent();
             number = num;
-            BindingContext = viewModel = new UserViewModel(num);
+            BindingContext = viewModel = new UserViewModel(num, title);
         }
 
         private void Accept_Tapped(object sender, EventArgs e)

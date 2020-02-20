@@ -1,5 +1,6 @@
 ﻿using Demo.Models;
 using Demo.Services;
+using Demo.Views;
 using MvvmHelpers;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,14 @@ namespace Demo.ViewModels
         {
             get { return result; }
             set { SetProperty(ref result, value); }
+
+        }
+
+        private string title;
+        public string Title
+        {
+            get { return title; }
+            set { SetProperty(ref title, value); }
 
         }
 
@@ -59,9 +68,10 @@ namespace Demo.ViewModels
         public ICommand AcceptPressedCommand { get; set; }
 
         public ICommand RejectPressedCommand { get; set; }
-        public UserViewModel(int number)
+        public UserViewModel(int number, string title)
         {
             IsLoading = true;
+            this.Title = title;
 
             AcceptPressedCommand = new Command<StatusUpdateModel>(async (x) => await AcceptCommand(x));
 
@@ -110,10 +120,12 @@ namespace Demo.ViewModels
             if (result)
             {
                 await Application.Current.MainPage.DisplayAlert("Success", "Product Accepeted", "ok");
+                await Application.Current.MainPage.Navigation.PushAsync(new UsersView(3, "Aprroved User"));
             }
             else
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Please try again", "ok");
+                
             }
         }
 
@@ -123,6 +135,7 @@ namespace Demo.ViewModels
             if (result)
             {
                 await Application.Current.MainPage.DisplayAlert("Success", "Product Rejected", "ok");
+                await Application.Current.MainPage.Navigation.PushAsync(new UsersView(2,"Pending User"));
             }
             else
             {

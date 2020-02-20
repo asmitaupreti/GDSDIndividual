@@ -34,7 +34,19 @@ namespace Demo.ViewModels
             }
         }
 
-        
+        private string title;
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+
+            set
+            {
+                SetProperty(ref title, value); ;
+            }
+        }
 
         private bool isLoading;
         public bool IsLoading
@@ -58,9 +70,10 @@ namespace Demo.ViewModels
             set { SetProperty(ref _selection, value); }
         }
 
-        public ProductViewModel(int number)
+        public ProductViewModel(int number, String title)
         {
             IsLoading = true;
+            this.Title = title;
 
             if (number == 1)
             {

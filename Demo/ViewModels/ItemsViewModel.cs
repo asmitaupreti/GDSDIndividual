@@ -178,34 +178,34 @@ namespace Demo.ViewModels
                 switch (adminPage)
                 {
                     case 1:
-                        var detailPage1 = new ProductView(1);
+                        var detailPage1 = new ProductView(1, "Total Product");
                         await Shell.Current.Navigation.PushAsync(detailPage1);
                         Selection = null;
                         break;
                     case 2:
-                        var detailPage2 = new ProductView(2);
+                        var detailPage2 = new ProductView(2,"Pending Product");
                         await Shell.Current.Navigation.PushAsync(detailPage2);
                         Selection = null;
                         break;
                     case 3:
-                        var detailPage3 = new ProductView(3);
+                        var detailPage3 = new ProductView(3, "Approved Product");
                         await Shell.Current.Navigation.PushAsync(detailPage3);
                         Selection = null;
                         break;
                     case 4:
-                        var detailPage4 = new UsersView(1);
+                        var detailPage4 = new UsersView(1, "Total User");
                         await Shell.Current.Navigation.PushAsync(detailPage4);
                         Selection = null;
                         break;
 
                     case 5:
-                        var detailPage5 = new UsersView(2);
+                        var detailPage5 = new UsersView(2, "Pending User");
                         await Shell.Current.Navigation.PushAsync(detailPage5);
                         Selection = null;
                         break;
 
                     case 6:
-                        var detailPage6 = new UsersView(3);
+                        var detailPage6 = new UsersView(3, "Approved User");
                         await Shell.Current.Navigation.PushAsync(detailPage6);
                         Selection = null;
                         break;

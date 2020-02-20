@@ -13,11 +13,11 @@ namespace Demo.Views
         AcceptRejectDesign a = new AcceptRejectDesign();
 
         int number;
-        public ProductView(int num)
+        public ProductView(int num, string title)
         {
             InitializeComponent();
             number = num;
-            BindingContext = viewModel = new ProductViewModel(num);
+            BindingContext = viewModel = new ProductViewModel(num,title);
         }
 
         private async void ListView_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
