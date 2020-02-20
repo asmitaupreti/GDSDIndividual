@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Demo.Views.ProductMenu" BackgroundColor="White">
+
+    <StackLayout>
+        <CollectionView ItemsSource="{Binding CardsCollection}"
+                            SelectedItem="{Binding Selection, Mode=TwoWay}"
+                            SelectionChangedCommand="{Binding SelectionCommand}"
+                            SelectionMode="Single"
+                            HorizontalScrollBarVisibility="Never" Margin="5,20,5,20">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid Padding="10" Margin="12">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="120" />
+                        </Grid.RowDefinitions>
+
+
+                        <StackLayout Grid.Row="0">
+                            <Frame BackgroundColor="AliceBlue" HasShadow="False" HeightRequest="100" WidthRequest="220" ClassId="{Binding Id}">
+                                <StackLayout Spacing="0">
+                                    <Label Text="{Binding totalNumber}" HeightRequest="60" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="35"/>
+                                    <Label Text="{Binding Name}"  HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentView>

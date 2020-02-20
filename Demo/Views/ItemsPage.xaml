@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             mc:Ignorable="d" x:Class="Demo.Views.ItemsPage"  x:Name="BrowseItemsPage">
+    <StackLayout>
+        <StackLayout>
+            <!--<CollectionView ItemsSource="{Binding CardsCollection}"
+                            SelectedItem="{Binding Selection, Mode=TwoWay}"
+                            SelectionChangedCommand="{Binding SelectionCommand}"
+                            SelectionMode="Single"
+                            ItemsLayout="HorizontalList" HeightRequest="150" HorizontalScrollBarVisibility="Never">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="12"  Padding="10">
+                            <Frame BackgroundColor="AliceBlue" HasShadow="False" HeightRequest="100" WidthRequest="200" ClassId="{Binding Id}" >
+                                <StackLayout>
+                                    <Image Source="logo.png" HeightRequest="60"/>
+                                    <Label Text="customers" HorizontalOptions="Center"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+
+            <StackLayout Orientation="Horizontal" BackgroundColor="#2196F3">
+                <Button Text="Menu" HorizontalOptions="FillAndExpand" Clicked="MenuClicked" BackgroundColor="#2196F3"/>
+                <Button Text="Chart" HorizontalOptions="FillAndExpand" Clicked="BarClicked" BackgroundColor="#2196F3"/>
+            </StackLayout>
+            <ContentView x:Name="body"/>
+            
+
+            <!-- <CollectionView ItemsSource="{Binding CardsCollection}"
+                            SelectedItem="{Binding Selection, Mode=TwoWay}"
+                            SelectionChangedCommand="{Binding SelectionCommand}"
+                            SelectionMode="Single"
+                            HorizontalScrollBarVisibility="Never" Margin="5,20,5,20">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid Padding="10" Margin="12">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120" />
+                            </Grid.RowDefinitions>
+
+
+                            <StackLayout Grid.Row="0">
+                                <Frame BackgroundColor="AliceBlue" HasShadow="False" HeightRequest="100" WidthRequest="220" ClassId="{Binding Id}">
+                                    <StackLayout Spacing="0">
+                                        <Label Text="130" HeightRequest="60" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="35"/>
+                                        <Label Text="Approved Product"  HorizontalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+
+
+
+        </StackLayout>
+
+
+
+        <!-- <chart:SfChart x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+
+            <chart:SfChart.Legend>
+                <chart:ChartLegend />
+            </chart:SfChart.Legend>
+
+            <chart:SfChart.Title>
+                <chart:ChartTitle Text="Chart"/>
+            </chart:SfChart.Title>
+
+            <chart:SfChart.PrimaryAxis>
+                <chart:CategoryAxis>
+                    <chart:CategoryAxis.Title>
+                        <chart:ChartAxisTitle Text="Name"/>
+                    </chart:CategoryAxis.Title>
+                </chart:CategoryAxis>
+            </chart:SfChart.PrimaryAxis>
+
+            <chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis>
+                    <chart:NumericalAxis.Title>
+                        <chart:ChartAxisTitle Text="Height (in cm)"/>
+                    </chart:NumericalAxis.Title>
+                </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+
+            <chart:SfChart.Series>
+                <chart:ColumnSeries ItemsSource="{Binding Data}" Label="Heights" XBindingPath="categoryName" YBindingPath="totalProduct" EnableTooltip="True">
+                    <chart:ColumnSeries.ColorModel>
+                        <chart:ChartColorModel Palette="Custom">
+                            <chart:ChartColorModel.CustomGradientColors>
+                                <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5, 0">
+                                    <chart:ChartGradientColor.GradientStops>
+                                        <chart:ChartGradientStop Color="#FFE7C7" Offset= "0"/>
+                                        <chart:ChartGradientStop Color="#FCB69F" Offset= "1"/>
+                                    </chart:ChartGradientColor.GradientStops>
+                                </chart:ChartGradientColor>
+                                <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5, 0">
+                                    <chart:ChartGradientColor.GradientStops>
+                                        <chart:ChartGradientStop Color="#DCFA97" Offset= "0"/>
+                                        <chart:ChartGradientStop Color="#96E6A1" Offset= "1"/>
+                                    </chart:ChartGradientColor.GradientStops>
+                                </chart:ChartGradientColor>
+                                <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5, 0">
+                                    <chart:ChartGradientColor.GradientStops>
+                                        <chart:ChartGradientStop Color="#DDD6F3" Offset= "0"/>
+                                        <chart:ChartGradientStop Color="#FAACA8" Offset= "1"/>
+                                    </chart:ChartGradientColor.GradientStops>
+                                </chart:ChartGradientColor>
+                                <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5, 0">
+                                    <chart:ChartGradientColor.GradientStops>
+                                        <chart:ChartGradientStop Color="#A8EAEE" Offset= "0"/>
+                                        <chart:ChartGradientStop Color="#7BB0F9" Offset= "1"/>
+                                    </chart:ChartGradientColor.GradientStops>
+                                </chart:ChartGradientColor>
+                            </chart:ChartColorModel.CustomGradientColors>
+                        </chart:ChartColorModel>
+                    </chart:ColumnSeries.ColorModel>
+                    <chart:ColumnSeries.DataMarker>
+                        <chart:ChartDataMarker/>
+                    </chart:ColumnSeries.DataMarker>
+                </chart:ColumnSeries>
+            </chart:SfChart.Series>
+        </chart:SfChart> -->
+
+    </StackLayout>
+</ContentPage>

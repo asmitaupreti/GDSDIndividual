@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d" xmlns:local="clr-namespace:Demo.Views"
+       FlyoutHeaderBehavior="CollapseOnScroll"
+       Title="Demo" x:Class="Demo.AppShell">
+    <!-- 
+        Styles and Resources 
+    -->
+
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid HeightRequest="200">
+                <Image Source="mty.jpg" Aspect="AspectFill" />
+                <Image Source="userimg.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="60" WidthRequest="60" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="Home" Icon="tab_feed.png">
+        <Tab>
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:ItemsPage}"  />
+        </Tab>
+    </FlyoutItem>
+    <!--<FlyoutItem Title="Total Product" Icon="tab_feed.png">
+        <Tab>
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:ProductView}"  />
+        </Tab>
+    </FlyoutItem>-->
+    <FlyoutItem Title="Message" Icon="tab_feed.png">
+        <Tab>
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:ChatPage}" Icon="logo.png" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Profile" Icon="tab_feed.png">
+        <Tab>
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:UserProfileView}" Icon="logo.png" />
+        </Tab>
+    </FlyoutItem>
+    <!-- <FlyoutItem Title="Total User" Icon="tab_feed.png">
+        <Tab>
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:UsersView}" Icon="logo.png" />
+        </Tab>
+    </FlyoutItem> -->
+
+
+
+    <MenuItem Text="Logout"
+            IconImageSource="tab_feed.png"/>
+    <!--<Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="logo.png"
+                       Margin="5"
+                       HeightRequest="45" />
+                <Label Grid.Column="1"
+                       Text="Title"
+                       FontAttributes="Italic"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>-->
+    <!--<ShellItem FlyoutIcon="logo.png"  Title="Home">
+        <ShellSection Title="Home Page">
+            <ShellContent Title="Home Page" >
+                <local:ItemsPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+
+    <ShellItem FlyoutIcon="logo.png"  Title="Home">
+        <ShellSection Title="Total Product">
+            <ShellContent Title="Home Page" >
+                <local:ItemsPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>-->
+  
+</Shell>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="Demo.Views.ProductView"
+             BackgroundColor="#f8f8f8">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+            <syncfusion:SfListView x:Name="listView" ItemSize="210" ItemsSource="{Binding ItemsCollection}" SelectedItem="{Binding Selection, Mode=TwoWay}"
+                            ItemTapped="ListView_ItemTapped" SelectionMode="Single" SelectionBackgroundColor="Transparent">
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <Frame x:Name="taskFrame" BackgroundColor="White" HasShadow="False" CornerRadius="2" ClassId="{Binding Id}" 
+                               HeightRequest="210"  Margin="10" Padding="5">
+                                <StackLayout  Spacing="10">
+                                    <CarouselView ItemsSource="{Binding ImageCollection}" HeightRequest="135">
+                                        <CarouselView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <ImageButton Source="{Binding Image}" Aspect="AspectFit" CornerRadius="2"/>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </CarouselView.ItemTemplate>
+                                    </CarouselView>
+                                    <StackLayout Spacing="5" Padding="5" >
+                                        <Label Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" FontSize="16" />
+
+                                        <Label Text="{Binding Category}" TextColor="Black" FontAttributes="Bold" FontSize="14" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+
+        </StackLayout>
+
+        <StackLayout IsVisible="{Binding IsLoading}" Padding="12"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+
+            <ActivityIndicator IsRunning="{Binding IsLoading}" Color ="Black"/>
+
+            <Label Text="Loading..." HorizontalOptions="Center" TextColor="Black"/>
+
+        </StackLayout>
+
+
+        <!--<RelativeLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            
+            <ActivityIndicator IsVisible="{Binding IsLoading}"
+                               IsRunning="{Binding IsLoading}"
+                               Color="Black"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand"
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=1}"
+                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=1}" />
+        </RelativeLayout>-->
+
+
+
+        <!--<ScrollView VerticalScrollBarVisibility="Never">
+
+            <FlexLayout BindableLayout.ItemsSource="{Binding ItemsCollection}" Direction="Column">
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical" FlexLayout.Grow="1">
+                            <Frame x:Name="taskFrame" BackgroundColor="White" HasShadow="False" CornerRadius="2" ClassId="{Binding Id}" 
+                               HeightRequest="200"   Margin="10,15,10,15" Padding="5">
+                                <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapped"/>
+                            </Frame.GestureRecognizers>
+                                <StackLayout  Spacing="10">
+                                    <CarouselView ItemsSource="{Binding ImageCollection}" HeightRequest="135">
+                                        <CarouselView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout>
+                                                    <ImageButton Source="{Binding ImageName}" Aspect="AspectFill" CornerRadius="2"/>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </CarouselView.ItemTemplate>
+                                    </CarouselView>
+                                    <StackLayout Spacing="5" >
+                                        <Label Text="{Binding Description}" TextColor="Black" FontAttributes="Bold" FontSize="16" />
+
+                                        <Label Text="{Binding Text}" TextColor="Black" FontAttributes="Bold" FontSize="14" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+
+
+        </ScrollView>-->
+    </AbsoluteLayout>
+</ContentPage>

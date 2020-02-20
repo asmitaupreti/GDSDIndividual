@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{265EBFFE-60EF-4815-90A6-70800C1EDDE8}|Default">
+  <MonoDevelop.Ide.ItemProperties.Demo.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D979D92D-7AD2-4D59-BECA-C1DB9353D643" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Demo/Views/UsersView.xaml">
+    <Files>
+      <File FileName="Demo/Views/UsersView.xaml" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Demo" expanded="True">
+            <Node name="Demo" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="UsersView.xaml" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Demo.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
