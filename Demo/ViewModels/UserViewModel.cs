@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using static Demo.Constant.Constant;
 
@@ -14,6 +14,14 @@ namespace Demo.ViewModels
 {
     public class UserViewModel : ObservableObject
     {
+        private bool result;
+        public bool Result
+        {
+            get { return result; }
+            set { SetProperty(ref result, value); }
+
+        }
+
         private ObservableCollection<UserModel> userCollection;
 
         public ObservableCollection<UserModel> UserCollection
@@ -48,10 +56,16 @@ namespace Demo.ViewModels
         }
         public Command LoadUserDataCommand { get; set; }
 
+        public ICommand AcceptPressedCommand { get; set; }
 
+        public ICommand RejectPressedCommand { get; set; }
         public UserViewModel(int number)
         {
             IsLoading = true;
+
+            AcceptPressedCommand = new Command<StatusUpdateModel>(async (x) => await AcceptCommand(x));
+
+            RejectPressedCommand = new Command<StatusUpdateModel>(async (x) => await RejectCommand(x));
 
             if (number == 1)
             {
@@ -87,6 +101,33 @@ namespace Demo.ViewModels
         {
             UserCollection = await APIServices.GetUserData(Constants.approvedUserEndpoint);
             IsLoading = false;
+        }
+
+
+        async System.Threading.Tasks.Task AcceptCommand(StatusUpdateModel s)
+        {
+            result = await APIServices.UpdateStatus(s, Constants.updateUserStatusEndpoint);
+            if (result)
+            {
+                await Application.Current.MainPage.DisplayAlert("Success", "Product Accepeted", "ok");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Please try again", "ok");
+            }
+        }
+
+        async System.Threading.Tasks.Task RejectCommand(StatusUpdateModel s)
+        {
+            result = await APIServices.UpdateStatus(s, Constants.updateUserStatusEndpoint);
+            if (result)
+            {
+                await Application.Current.MainPage.DisplayAlert("Success", "Product Rejected", "ok");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Please try again", "ok");
+            }
         }
     }
 }

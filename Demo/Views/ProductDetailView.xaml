@@ -25,9 +25,9 @@
             <Label Text="{Binding Product.Description}"/>
         </StackLayout>
 
-        <StackLayout Orientation="Horizontal" Spacing="30" Padding="10">
-            <Button Text="Accept" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" Clicked="OnAcceptClicked" ClassId="1"/>
-            <Button Text="Reject" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="OnAcceptClicked" ClassId="0"/>
+        <StackLayout Orientation="Horizontal" Spacing="30" Padding="10" IsVisible="{Binding A.StackVisible}">
+            <Button Text="Accept" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" Clicked="OnAcceptClicked" IsVisible="{Binding A.AcceptVisible}" />
+            <Button Text="Reject" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="OnRejectClicked" IsVisible="{Binding A.RejectVisible}" />
             
         </StackLayout>
     </StackLayout>

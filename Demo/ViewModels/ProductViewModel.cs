@@ -34,9 +34,9 @@ namespace Demo.ViewModels
             }
         }
 
+        
 
         private bool isLoading;
-
         public bool IsLoading
         {
             get

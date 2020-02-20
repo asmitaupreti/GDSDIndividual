@@ -13,7 +13,7 @@
                 <syncfusion:SfListView.LeftSwipeTemplate>
                     <DataTemplate x:Name="LeftSwipeTemplate">
                         <Grid>
-                            <Grid BackgroundColor="#009EDA" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Column="0">
+                            <Grid BackgroundColor="Green" HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Column="0">
                                 <Grid VerticalOptions="Center" HorizontalOptions="Center" ClassId="{Binding Id}">
                                     <Image Grid.Column="0"
                                     Grid.Row="0"
@@ -31,8 +31,8 @@
                 </syncfusion:SfListView.LeftSwipeTemplate>
 
                 <syncfusion:SfListView.RightSwipeTemplate>
-                    <DataTemplate x:Name="RightSwipeTemplate">
-                        <Grid BackgroundColor="#DC595F" HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <DataTemplate x:Name="RightSwipeTemplate" >
+                        <Grid BackgroundColor="Red" HorizontalOptions="Fill" VerticalOptions="Fill">
                             <Grid VerticalOptions="Center" HorizontalOptions="Center" ClassId="{Binding Id}">
                                 <Image Grid.Column="0"
                                 Grid.Row="0"

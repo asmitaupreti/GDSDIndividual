@@ -24,6 +24,11 @@ namespace Demo.Constant
 
             public static string barChartEndpoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminCountCategory.php";
 
+            public static string updateUserStatusEndpoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminUpdateUser.php";
+
+            public static string updateProductStatusEndpoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminUpdateProductStatus.php";
+
+
             //public const string OpenWeatherMapAPIKey = "8354617e4843728e5711a1df8acd988d";
             public static string productMenuEndPoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminProductCountMenu.php";
            

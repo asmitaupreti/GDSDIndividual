@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows.Input;
 using Demo.Models;
+using Demo.Services;
 using MvvmHelpers;
 using Xamarin.Forms;
-
+using static Demo.Constant.Constant;
 
 namespace Demo.ViewModels
 {
@@ -19,27 +20,61 @@ namespace Demo.ViewModels
             }
         }
 
-        public ICommand AcceptPressedCommand => new Command(AcceptCommand);
+        private AcceptRejectDesign _a;
+        public AcceptRejectDesign A
+        {
+            get => _a;
+            set
+            {
+                SetProperty(ref _a, value);
+            }
+        }
 
-        public ICommand RejectPressedCommand => new Command(RejectCommand);
+        private bool result;
+        public bool Result
+        {
+            get { return result; }
+            set { SetProperty(ref result, value); }
 
-        public ProductDetailViewModel(Items product)
+        }
+
+        public ICommand AcceptPressedCommand { get; set; }
+
+        public ICommand RejectPressedCommand { get; set; }
+
+        public ProductDetailViewModel(Items product,AcceptRejectDesign a)
         {
             this.Product = product;
+            this.A = a;
+
+            AcceptPressedCommand = new Command<StatusUpdateModel>(async (x) => await AcceptCommand(x));
+
+            RejectPressedCommand = new Command<StatusUpdateModel>(async (x) => await RejectCommand(x));
         }
 
-        void AcceptCommand()
+        async System.Threading.Tasks.Task AcceptCommand(StatusUpdateModel s)
         {
-            /*ItemsCollection = await APIServices.GetProductData(Constants.productEndpoint);
-            IsLoading = false;*/
-
+            result = await APIServices.UpdateStatus(s,Constants.updateProductStatusEndpoint);
+            if (result)
+            {
+                await Application.Current.MainPage.DisplayAlert("Success", "Product Accepeted", "ok");
+            }
+            else {
+                await Application.Current.MainPage.DisplayAlert("Error", "Please try again", "ok");
+            }
         }
 
-        void RejectCommand()
+        async System.Threading.Tasks.Task RejectCommand(StatusUpdateModel s)
         {
-            /*ItemsCollection = await APIServices.GetProductData(Constants.productEndpoint);
-            IsLoading = false;*/
-
+            result = await APIServices.UpdateStatus(s, Constants.updateProductStatusEndpoint);
+            if (result)
+            {
+                await Application.Current.MainPage.DisplayAlert("Success", "Product Rejected", "ok");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Please try again", "ok");
+            }
         }
 
     }

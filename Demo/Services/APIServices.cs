@@ -256,19 +256,20 @@ namespace Demo.Services
 
 
         public static async Task<bool> UpdateStatus(
-                string status, string uri)
+                StatusUpdateModel s, string uri)
         {
             var client = new HttpClient();
 
             var responseModel = new loginModel();
 
-            var model = new StatusUpdateModel
+            /*var model = new StatusUpdateModel
             {
+                Id = id,
                 Status = status
 
-            };
+            };*/
 
-            var json = JsonConvert.SerializeObject(model);
+            var json = JsonConvert.SerializeObject(s);
 
             HttpContent httpContent = new StringContent(json);
 
