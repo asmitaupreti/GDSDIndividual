@@ -1,4 +1,5 @@
 ﻿using MvvmHelpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,40 +8,34 @@ namespace Demo.Models
 {
     public class Profile : ObservableObject
     {
-        public Profile()
-        {
-        }
-        int id;
-        string username;
-        string email;
-        bool password;
+        private int id;
 
-
+        [JsonProperty(PropertyName = "Id")]
         public int Id
         {
             get { return id; }
             set { SetProperty(ref id, value); }
         }
 
-        public string Username
+        private string _name;
+
+        [JsonProperty(PropertyName = "name")]
+        public string Name
         {
-            get { return username; }
-            set { SetProperty(ref username, value); }
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
+
         }
 
-        public string Email
-        {
-            get { return email; }
-            set { SetProperty(ref email, value); }
-        }
+        private string _password;
 
-        public bool Password
+        [JsonProperty(PropertyName = "password")]
+        public string Password
         {
-            get { return password; }
-            set { SetProperty(ref password, value); }
-        }
+            get { return _password; }
+            set { SetProperty(ref _password, value); }
 
+        }
 
     }
-
 }

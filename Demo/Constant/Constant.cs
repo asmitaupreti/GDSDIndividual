@@ -6,7 +6,7 @@ namespace Demo.Constant
  
         public static class Constants
         {
-            public static string profileEndpoint = "https://api.myjson.com/bins/1cjsc2";
+            public static string profileEndpoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminSpecificUser.php";
 
             public static string productEndpoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminAllProduct.php";
 
@@ -28,11 +28,14 @@ namespace Demo.Constant
 
             public static string updateProductStatusEndpoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminUpdateProductStatus.php";
 
+            public static string messageEndpoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminGetMessages.php";
+
+            public static string specificMessageEndpoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminGetSenderMessage.php";
 
             //public const string OpenWeatherMapAPIKey = "8354617e4843728e5711a1df8acd988d";
             public static string productMenuEndPoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminProductCountMenu.php";
-           
 
+            public static string updateProfileEndPoint = "http://hs-marketplace.herokuapp.com/demo/mobileAdminApi/adminProfileData.php";
             //public const string OpenWeatherMapAPIKey = "8354617e4843728e5711a1df8acd988d";
         }
     }

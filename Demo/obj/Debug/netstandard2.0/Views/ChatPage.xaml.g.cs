@@ -17,7 +17,7 @@ namespace Demo.Views {
     public partial class ChatPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Demo.Controls.ExtendedListView ChatList;
+        private global::Syncfusion.ListView.XForms.SfListView ListView;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Demo.Views.Partials.ChatInputBarView chatInput;
@@ -25,7 +25,7 @@ namespace Demo.Views {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ChatPage));
-            ChatList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Demo.Controls.ExtendedListView>(this, "ChatList");
+            ListView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Syncfusion.ListView.XForms.SfListView>(this, "ListView");
             chatInput = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Demo.Views.Partials.ChatInputBarView>(this, "chatInput");
         }
     }

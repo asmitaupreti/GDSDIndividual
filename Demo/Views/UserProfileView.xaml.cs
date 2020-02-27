@@ -18,7 +18,14 @@ namespace Demo.Views
         {
             var entryField = sender as Entry;
             var newText = entryField.Text;
-            this.vm.ConfirmPasswordCommand.Execute(newText);
+           /* this.vm.ConfirmPasswordCommand.Execute(newText);*/
+        }
+
+        private void onSaveClicked(object sender, EventArgs e)
+        {
+            vm.validateNameCommand.Execute(null);
+            vm.validatePasswordCommand.Execute(null);
+            vm.UpdateProfileDataCommand.Execute(null);
         }
     }
 }

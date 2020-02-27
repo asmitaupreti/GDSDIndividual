@@ -20,6 +20,8 @@ namespace Demo.Views
 
             Console.WriteLine(viewModel.LoginData.Email);
             Console.WriteLine(viewModel.LoginData.Password);
+            viewModel.validateNameCommand.Execute(null);
+            viewModel.validatePasswordCommand.Execute(null);
             viewModel.LoadLoginCommand.Execute(null);
 
         }

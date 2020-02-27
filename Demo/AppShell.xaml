@@ -20,7 +20,7 @@
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
-    <FlyoutItem Title="Home" Icon="tab_feed.png">
+    <FlyoutItem Title="Home" Icon="home.png">
         <Tab>
             <ShellContent Title="Home" ContentTemplate="{DataTemplate local:ItemsPage}"  />
         </Tab>
@@ -30,12 +30,12 @@
             <ShellContent Title="Home" ContentTemplate="{DataTemplate local:ProductView}"  />
         </Tab>
     </FlyoutItem>-->
-    <FlyoutItem Title="Message" Icon="tab_feed.png">
+    <FlyoutItem Title="Hello" Icon="mail.png">
         <Tab>
-            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:ChatPage}" Icon="logo.png" />
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MessageView}" Icon="logo.png" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Profile" Icon="tab_feed.png">
+    <FlyoutItem Title="Profile" Icon="account.png">
         <Tab>
             <ShellContent Title="Home" ContentTemplate="{DataTemplate local:UserProfileView}" Icon="logo.png" />
         </Tab>
@@ -49,7 +49,8 @@
 
 
     <MenuItem Text="Logout"
-            IconImageSource="tab_feed.png"/>
+            IconImageSource="logout.png"
+              Command="{Binding LogoutCommand}"/>
     <!--<Shell.ItemTemplate>
         <DataTemplate>
             <Grid>

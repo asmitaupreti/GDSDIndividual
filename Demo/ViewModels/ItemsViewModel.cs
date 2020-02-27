@@ -19,10 +19,28 @@ namespace Demo.ViewModels
     {
         public Command LoadProductDataCommand { get; set; }
 
+        public ICommand RefreshMenuCommand { get; }
+
         public Command LoadProductNumberCommand { get; set; }
 
         public Command LoadBarChartDataCommand { get; set; }
 
+
+        bool isMenuRefreshing;
+        
+
+        public bool IsMenuRefreshing
+        {
+            get
+            {
+                return isMenuRefreshing;
+            }
+
+            set
+            {
+                SetProperty(ref isMenuRefreshing, value); ;
+            }
+        }
 
         private ObservableCollection<Items> itemsCollection;
 
@@ -130,6 +148,7 @@ namespace Demo.ViewModels
         public ItemsViewModel()
         {
             IsLoading = true;
+
             LoadProductDataCommand = new Command(async async => await ProfileDataCommand());
             LoadProductDataCommand.Execute(null);
 
@@ -139,10 +158,12 @@ namespace Demo.ViewModels
             LoadBarChartDataCommand = new Command(async async => await BarChartDataCommand());
             LoadBarChartDataCommand.Execute(null);
 
+            RefreshMenuCommand = new Command(async async => await ProductNumberDataCommand2());
 
 
 
-            
+
+
         }
 
         async System.Threading.Tasks.Task ProfileDataCommand()
@@ -154,8 +175,17 @@ namespace Demo.ViewModels
 
         async System.Threading.Tasks.Task ProductNumberDataCommand()
         {
+            
             CardsCollection = await APIServices.GetProductNumber(Constants.productMenuEndPoint);
             IsLoading = false;
+
+        }
+
+        async System.Threading.Tasks.Task ProductNumberDataCommand2()
+        {
+            CardsCollection.Clear();
+            CardsCollection = await APIServices.GetProductNumber(Constants.productMenuEndPoint);
+            IsMenuRefreshing = false;
 
         }
 
@@ -178,6 +208,7 @@ namespace Demo.ViewModels
                 switch (adminPage)
                 {
                     case 1:
+                       /* var detailPage1 = new MessageHome();*/
                         var detailPage1 = new ProductView(1, "Total Product");
                         await Shell.Current.Navigation.PushAsync(detailPage1);
                         Selection = null;

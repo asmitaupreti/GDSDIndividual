@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:local="clr-namespace:Demo.Services"
+             mc:Ignorable="d"
+             x:Class="Demo.Views.MessageView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ChatTemplateSelector x:Key="MessageTemplateSelector" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <syncfusion:SfListView x:Name="ListView"
+                           SelectionMode="Single"
+                           SelectedItem="{Binding Selection, Mode=TwoWay}"
+                           ItemsSource="{Binding ItemsCollection}"
+                           ItemSize="100"
+                           ItemTapped="ListView_OnSelectionChanged">
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Vertical">
+                        <Frame x:Name="taskFrame" BackgroundColor="White" HasShadow="False" CornerRadius="2" 
+                               HeightRequest="80"  Margin="10" Padding="5" >
+                            <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" Spacing="10">
+                                <Frame HasShadow="False" CornerRadius="20" Margin="10" />
+                                <StackLayout Spacing="5" VerticalOptions="CenterAndExpand" >
+                                    <Label Text="{Binding name}" TextColor="Black" FontAttributes="Bold" FontSize="16" />
+
+                                    <Label Text="{Binding content}" TextColor="Black" FontAttributes="Bold" FontSize="14" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+    </StackLayout>
+    
+</ContentPage>

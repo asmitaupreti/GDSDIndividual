@@ -60,7 +60,7 @@ namespace Demo.ViewModels
 
             set
             {
-                SetProperty(ref isLoading, value); ;
+                SetProperty(ref isLoading, value); 
             }
         }
         public Command LoadUserDataCommand { get; set; }

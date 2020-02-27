@@ -26,6 +26,7 @@ C:\Users\Dell\Desktop\GDSD\AdminPannel\Demo\obj\Debug\netstandard2.0\Views\Cells
 C:\Users\Dell\Desktop\GDSD\AdminPannel\Demo\obj\Debug\netstandard2.0\Views\ChatPage.xaml.g.cs
 C:\Users\Dell\Desktop\GDSD\AdminPannel\Demo\obj\Debug\netstandard2.0\Views\ItemsPage.xaml.g.cs
 C:\Users\Dell\Desktop\GDSD\AdminPannel\Demo\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+C:\Users\Dell\Desktop\GDSD\AdminPannel\Demo\obj\Debug\netstandard2.0\Views\MessageView.xaml.g.cs
 C:\Users\Dell\Desktop\GDSD\AdminPannel\Demo\obj\Debug\netstandard2.0\Views\Partials\ChatInputBarView.xaml.g.cs
 C:\Users\Dell\Desktop\GDSD\AdminPannel\Demo\obj\Debug\netstandard2.0\Views\ProductDetailView.xaml.g.cs
 C:\Users\Dell\Desktop\GDSD\AdminPannel\Demo\obj\Debug\netstandard2.0\Views\ProductMenu.xaml.g.cs

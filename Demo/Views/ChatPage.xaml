@@ -3,7 +3,8 @@
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 xmlns:local="clr-namespace:Demo.Services"
  xmlns:controls="clr-namespace:Demo.Controls"
-  xmlns:partials="clr-namespace:Demo.Views.Partials" x:Class="Demo.Views.ChatPage">
+  xmlns:partials="clr-namespace:Demo.Views.Partials"
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" x:Class="Demo.Views.ChatPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:ChatTemplateSelector x:Key="MessageTemplateSelector"/>
@@ -16,52 +17,18 @@ xmlns:local="clr-namespace:Demo.Services"
             <RowDefinition Height="1" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <controls:ExtendedListView Grid.Row="0" 
-                 ItemTemplate="{StaticResource MessageTemplateSelector}" 
-                 ItemsSource="{Binding Messages}" 
-                 Margin="0"
-                 ItemTapped="OnListTapped"
-                 Rotation="180" 
-                 FlowDirection="RightToLeft"
-                 HasUnevenRows="True" x:Name="ChatList"
-                 VerticalOptions="FillAndExpand" 
-                 SeparatorColor="Transparent"
-                 ItemAppearingCommand="{Binding MessageAppearingCommand}"
-                 ItemDisappearingCommand="{Binding MessageDisappearingCommand}">
-        </controls:ExtendedListView>
-        <Frame HorizontalOptions="EndAndExpand" 
-                                 Margin="0,0,2,15"
-                                 VerticalOptions="End"
-                                 HasShadow="false" 
-                                 Grid.Row="0"  
-                                 HeightRequest="50" WidthRequest="50"
-                                 CornerRadius="25"
-                                 Padding="1"
-                                 BackgroundColor="White"   
-                                 IsVisible="{Binding ShowScrollTap,Mode=TwoWay}">
-            <StackLayout Spacing="3">
-                <Label Text="{Binding PendingMessageCount}"
-                              HorizontalOptions="CenterAndExpand"
-                              IsVisible="{Binding PendingMessageCountVisible}"
-                              VerticalTextAlignment="Center"
-                              TextColor="{DynamicResource primary}"/>
-                <Image Source="ic_scrolldown"
-                               WidthRequest="30"
-                               HeightRequest="30"
-                               VerticalOptions="CenterAndExpand"/>
-
-            </StackLayout>
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="ScrollTap"/>
-            </Frame.GestureRecognizers>
-        </Frame>
+        <sync:SfListView x:Name="ListView" Grid.Row="0"
+            ItemTemplate="{StaticResource MessageTemplateSelector}" 
+            ItemsSource="{Binding MessageCollection}"
+            ItemSize="105" SelectionMode="None" BackgroundColor="#FFFAF0"/>
         <BoxView HorizontalOptions="FillAndExpand"
                  HeightRequest="1"
                  BackgroundColor="LightGray"
                  Grid.Row="1"/>
         <partials:ChatInputBarView Grid.Row="2"
                                    Margin="0,0,10,0"
-                                   x:Name="chatInput"/>
+                                   x:Name="chatInput"
+                                   BindingContext="{Binding OutGoingText}"/>
     </Grid>
 </ContentPage>
 

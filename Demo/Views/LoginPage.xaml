@@ -4,31 +4,35 @@
         <StackLayout Margin="30,80,0,0" Spacing="20">
             <Image Source="logo.png" HeightRequest="70" HorizontalOptions="Start"/>
             <StackLayout Spacing="2">
-                <Label Text="Welcome" FontAttributes="Bold" FontSize="24" TextColor="#8484F9"/>
-                <Label Text="Back" FontAttributes="Bold" FontSize="24" TextColor="#8484F9"/>
+                <Label Text="Welcome" FontAttributes="Bold" FontSize="24" TextColor="#2196F3"/>
+                <Label Text="Back" FontAttributes="Bold" FontSize="24" TextColor="#2196F3"/>
             </StackLayout>
 
         </StackLayout>
         <StackLayout>
-            <Frame HasShadow="False" CornerRadius="10" BackgroundColor="#8484F9">
+            <Frame HasShadow="False" CornerRadius="10" BackgroundColor="#2196F3">
                 <StackLayout Spacing="20" Margin="20">
                     <inputLayout:SfTextInputLayout
                          Hint="Name"
-                        ContainerBackgroundColor="#8484F9"
+                        ContainerBackgroundColor="#2196F3"
                         FocusedColor="White"
                         UnfocusedColor="White"
+                        ErrorText="string only/shouldn't be empty"
+                        HasError="{Binding NameError}"
                         ContainerType="Filled">
                         <Entry TextColor="White" Text="{Binding LoginData.Email}" />
                     </inputLayout:SfTextInputLayout>
                     <inputLayout:SfTextInputLayout
                          Hint="Password"
-                        ContainerBackgroundColor="#8484F9"
+                        ContainerBackgroundColor="#2196F3"
                         FocusedColor="White"
                         UnfocusedColor="White"
+                        ErrorText="string only/shouldn't be empty"
+                        HasError="{Binding PasswordError}"
                         ContainerType="Filled">
-                        <Entry TextColor="White" Text="{Binding LoginData.Password}" />
+                        <Entry TextColor="White" Text="{Binding LoginData.Password}" IsPassword="true"  />
                     </inputLayout:SfTextInputLayout>
-                    <Button Text="Login" TextColor="#8484F9" BackgroundColor="White" CornerRadius="20" Font="16" FontAttributes="Bold"  Clicked="OnLoginClicked"/>
+                    <Button Text="Login" TextColor="#2196F3" BackgroundColor="White" CornerRadius="20" Font="16" FontAttributes="Bold"  Clicked="OnLoginClicked"/>
                 </StackLayout>
 
             </Frame>

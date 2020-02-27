@@ -4,66 +4,39 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="Profile"
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="Demo.Views.UserProfileView">
 
-    <RelativeLayout>
-        <Frame BackgroundColor="White" CornerRadius="10" Margin="20" x:Name="BackgroundView" RelativeLayout.WidthConstraint="{ConstraintExpression
-                  Type=RelativeToParent,Property=Width,Factor=1,Constant=0}" HasShadow="False" Padding="0">
+    <StackLayout Margin="20">
+        <Frame BackgroundColor="White" CornerRadius="10"  x:Name="BackgroundView"  HasShadow="False" Padding="0">
 
-            <StackLayout Orientation="Vertical" Spacing="35"  Margin="15,10,0,0" Padding="20" RelativeLayout.YConstraint=
-                        "{ConstraintExpression Type=RelativeToView,
-                        ElementName= ProfileImage,
-                        Factor=1, Property= Y , Constant=120}"
+            <StackLayout Orientation="Vertical" Spacing="50"  Padding="10" BackgroundColor="Transparent" >
 
-                         RelativeLayout.XConstraint=
-                        "{ConstraintExpression Type=RelativeToView,
-                        ElementName= BackgroundView,
-                        Factor=1, Property= X , Constant=0}"
-
-                        RelativeLayout.WidthConstraint="{ConstraintExpression
-                        Type=RelativeToView,
-                        ElementName= BackgroundView,
-                        Property=Width,Factor=1,Constant=0}"
-
-                        RelativeLayout.HeightConstraint="{ConstraintExpression
-                        Type=RelativeToView,
-                        ElementName= BackgroundView,
-                        Property=Height,Factor=1,Constant=-50}">
-                <custom:CircleImage  Source="79.jpg" WidthRequest="100" HeightRequest="100" x:Name="ProfileImage"
+                <StackLayout BackgroundColor="Transparent">
+                    <custom:CircleImage  Source="user.png" WidthRequest="80" HeightRequest="80" x:Name="ProfileImage"
                                    VerticalOptions="Start" HorizontalOptions="CenterAndExpand"/>
-
-                <ImageButton Source="add.png" BackgroundColor="Transparent" WidthRequest="40" HeightRequest="40" Margin = "0,-45,0,0"/>
-                <StackLayout Spacing="10"  >
+                </StackLayout>
+                
+                <StackLayout Spacing="8" BackgroundColor="Transparent" >
                     <StackLayout Spacing="-10">
                         <Label Text="Username"  FontFamily="Arial" TextColor="#030745" FontSize="16.5"/>
                         <inputLayout:SfTextInputLayout
                     UnfocusedColor="#EFEDED"
                     ContainerType="None"
+                         ErrorText="string only"
+                        HasError="{Binding NameError}"
                      TrailingViewPosition="Outside">
-                            <Entry Text="{Binding ProfileData.Username}" TextColor="#4576C0" />
-                            <inputLayout:SfTextInputLayout.TrailingView>
+                            <Entry Text="{Binding ProfileData.Name}" TextColor="#4576C0"/>
+                           <!-- <inputLayout:SfTextInputLayout.TrailingView>
                                 <Button  ImageSource="edit.png"/>
-                            </inputLayout:SfTextInputLayout.TrailingView>
+                            </inputLayout:SfTextInputLayout.TrailingView>-->
                         </inputLayout:SfTextInputLayout>
                     </StackLayout>
-
+                    
                     <StackLayout Spacing="-10">
-                        <Label Text="Email"  FontFamily="Arial" TextColor="#030745" FontSize="16.5"/>
-                        <inputLayout:SfTextInputLayout
-                    UnfocusedColor="#EFEDED"
-                    ContainerType="None"
-                        TrailingViewPosition="Outside">
-                            <Entry Text="{Binding ProfileData.Email}" TextColor="#4576C0" />
-                            <inputLayout:SfTextInputLayout.TrailingView>
-                                <Button ImageSource="edit.png"/>
-                            </inputLayout:SfTextInputLayout.TrailingView>
-                        </inputLayout:SfTextInputLayout>
-                    </StackLayout>
-
-                    <StackLayout Spacing="-10">
-                        <Label Text=" New Password"  FontFamily="Arial" TextColor="#030745" FontSize="16.5"/>
+                        <Label Text="Password"  FontFamily="Arial" TextColor="#030745" FontSize="16.5"/>
                         <inputLayout:SfTextInputLayout
                     EnablePasswordVisibilityToggle="True"     
                     ShowCharCount="true"
@@ -71,35 +44,26 @@
                     HelperText="Enter 5 to 8 characters"
                     UnfocusedColor="#EFEDED"
                     ContainerType="None"
+                         ErrorText="string only"
+                        HasError="{Binding PasswordError}"
                        TrailingViewPosition="Outside">
-                            <Entry  TextColor="#4576C0" />
-                            <inputLayout:SfTextInputLayout.TrailingView>
+                            <Entry  TextColor="#4576C0" Text="{Binding ProfileData.Password}" IsPassword="true" />
+                            <!--<inputLayout:SfTextInputLayout.TrailingView>
                                 <Button ImageSource="edit.png"/>
-                            </inputLayout:SfTextInputLayout.TrailingView>
-                        </inputLayout:SfTextInputLayout>
-                    </StackLayout>
-
-                    <StackLayout Spacing="-10">
-                        <Label Text=" Old Password"  FontFamily="Arial" TextColor="#030745" FontSize="16.5"/>
-                        <inputLayout:SfTextInputLayout 
-                    EnablePasswordVisibilityToggle="True"     
-                    ShowCharCount="true"
-                    CharMaxLength="8"
-                    HelperText="Enter 5 to 8 characters"
-                    UnfocusedColor="#EFEDED"
-                    ContainerType="None"
-                       TrailingViewPosition="Outside">
-                            <Entry  TextColor="#4576C0" Completed="Entry_TextChanged"/>
-                            <inputLayout:SfTextInputLayout.TrailingView>
-                                <Button ImageSource="edit.png"/>
-                            </inputLayout:SfTextInputLayout.TrailingView>
+                            </inputLayout:SfTextInputLayout.TrailingView>-->
                         </inputLayout:SfTextInputLayout>
                     </StackLayout>
 
 
 
-                    <Button BackgroundColor="#8484F9" Text="Save" CornerRadius="18" TextColor="White"
-                         Margin="30,5,55,0" HeightRequest="37" FontAttributes="Bold" FontSize="16.5" IsEnabled="{Binding SaveEnabeled}"/>
+
+                    <StackLayout Margin="0,20,0,0">
+                        <Button BackgroundColor="#2196F3" Text="Save" CornerRadius="18" TextColor="White"
+                          FontAttributes="Bold" FontSize="16.5"
+                                Clicked="onSaveClicked"
+                                />
+                    </StackLayout>
+                    
                 </StackLayout>
 
             </StackLayout>
@@ -107,5 +71,5 @@
         </Frame>
 
 
-    </RelativeLayout>
+    </StackLayout>
 </ContentPage>

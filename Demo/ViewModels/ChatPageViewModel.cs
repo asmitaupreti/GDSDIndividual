@@ -24,27 +24,27 @@ namespace Demo.ViewModels
 
         public ChatPageViewModel()
         {
-            Messages.Insert(0, new Message() { Text = "Hi" });
-            Messages.Insert(0, new Message() { Text = "How are you?", User = App.User });
-            Messages.Insert(0, new Message() { Text = "What's new?" });
-            Messages.Insert(0, new Message() { Text = "How is your family", User = App.User });
-            Messages.Insert(0, new Message() { Text = "How is your dog?", User = App.User });
-            Messages.Insert(0, new Message() { Text = "How is your cat?", User = App.User });
-            Messages.Insert(0, new Message() { Text = "How is your sister?" });
-            Messages.Insert(0, new Message() { Text = "When we are going to meet?" });
-            Messages.Insert(0, new Message() { Text = "I want to buy a laptop" });
-            Messages.Insert(0, new Message() { Text = "Where I can find a good one?" });
-            Messages.Insert(0, new Message() { Text = "Also I'm testing this chat" });
-            Messages.Insert(0, new Message() { Text = "Oh My God!" });
-            Messages.Insert(0, new Message() { Text = " No Problem", User = App.User });
-            Messages.Insert(0, new Message() { Text = "Hugs and Kisses", User = App.User });
-            Messages.Insert(0, new Message() { Text = "When we are going to meet?" });
-            Messages.Insert(0, new Message() { Text = "I want to buy a laptop" });
-            Messages.Insert(0, new Message() { Text = "Where I can find a good one?" });
-            Messages.Insert(0, new Message() { Text = "Also I'm testing this chat" });
-            Messages.Insert(0, new Message() { Text = "Oh My God!" });
-            Messages.Insert(0, new Message() { Text = " No Problem" });
-            Messages.Insert(0, new Message() { Text = "Hugs and Kisses" });
+            Messages.Insert(0, new Message() { Text = "Hi", User = 2 });
+            Messages.Insert(0, new Message() { Text = "How are you?", User = 1 });
+            Messages.Insert(0, new Message() { Text = "What's new?", User = 2 });
+            Messages.Insert(0, new Message() { Text = "How is your family", User = 1 });
+            Messages.Insert(0, new Message() { Text = "How is your dog?", User = 1 });
+            Messages.Insert(0, new Message() { Text = "How is your cat?", User = 1 });
+            Messages.Insert(0, new Message() { Text = "How is your sister?", User = 2 });
+            Messages.Insert(0, new Message() { Text = "When we are going to meet?", User = 2 });
+            Messages.Insert(0, new Message() { Text = "I want to buy a laptop", User = 2 });
+            Messages.Insert(0, new Message() { Text = "Where I can find a good one?", User = 2 });
+            Messages.Insert(0, new Message() { Text = "Also I'm testing this chat", User = 2 });
+            Messages.Insert(0, new Message() { Text = "Oh My God!", User = 2 });
+            Messages.Insert(0, new Message() { Text = " No Problem", User = 1 });
+            Messages.Insert(0, new Message() { Text = "Hugs and Kisses", User = 1 });
+            Messages.Insert(0, new Message() { Text = "When we are going to meet?", User = 2 });
+            Messages.Insert(0, new Message() { Text = "I want to buy a laptop", User = 2 });
+            Messages.Insert(0, new Message() { Text = "Where I can find a good one?", User = 2 });
+            Messages.Insert(0, new Message() { Text = "Also I'm testing this chat", User = 2 });
+            Messages.Insert(0, new Message() { Text = "Oh My God!", User = 2 });
+            Messages.Insert(0, new Message() { Text = " No Problem", User = 2 });
+            Messages.Insert(0, new Message() { Text = "Hugs and Kisses", User = 2 });
 
             MessageAppearingCommand = new Command<Message>(OnMessageAppearing);
             MessageDisappearingCommand = new Command<Message>(OnMessageDisappearing);
@@ -53,26 +53,26 @@ namespace Demo.ViewModels
             {
                 if (!string.IsNullOrEmpty(TextToSend))
                 {
-                    Messages.Insert(0, new Message() { Text = TextToSend, User = App.User });
+                    Messages.Insert(0, new Message() { Text = TextToSend, User = 1 });
                     TextToSend = string.Empty;
                 }
 
             });
 
             //Code to simulate reveing a new message procces
-            Device.StartTimer(TimeSpan.FromSeconds(5), () =>
+           /* Device.StartTimer(TimeSpan.FromSeconds(5), () =>
             {
                 if (LastMessageVisible)
                 {
-                    Messages.Insert(0, new Message() { Text = "New message test", User = "Mario" });
+                    Messages.Insert(0, new Message() { Text = "New message test", User = 2 });
                 }
                 else
                 {
-                    DelayedMessages.Enqueue(new Message() { Text = "New message test", User = "Mario" });
+                    DelayedMessages.Enqueue(new Message() { Text = "New message test", User = 2 });
                     PendingMessageCount++;
                 }
                 return true;
-            });
+            });*/
 
 
 

@@ -24,8 +24,9 @@ namespace Demo.Services
             if (messageVm == null)
                 return null;
 
+            int id = Int32.Parse(Application.Current.Properties["id"].ToString());
 
-            return (messageVm.User == App.User) ? outgoingDataTemplate : incomingDataTemplate;
+            return (messageVm.User == id) ? incomingDataTemplate : outgoingDataTemplate;
         }
 
     }
