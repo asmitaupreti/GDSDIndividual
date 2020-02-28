@@ -144,6 +144,17 @@ namespace Demo.ViewModels
 
         public ICommand SelectionCommand => new Command(ItemSelected);
 
+        private Command _refreshViewCommand;
+        public Command RefreshViewCommand
+        {
+            get
+            {
+                return _refreshViewCommand ?? (_refreshViewCommand = new Command(async async =>
+                {
+                    await ProductNumberDataCommand();
+                }));
+            }
+        }
 
         public ItemsViewModel()
         {
@@ -157,11 +168,6 @@ namespace Demo.ViewModels
 
             LoadBarChartDataCommand = new Command(async async => await BarChartDataCommand());
             LoadBarChartDataCommand.Execute(null);
-
-            RefreshMenuCommand = new Command(async async => await ProductNumberDataCommand2());
-
-
-
 
 
         }
@@ -178,26 +184,13 @@ namespace Demo.ViewModels
             
             CardsCollection = await APIServices.GetProductNumber(Constants.productMenuEndPoint);
             IsLoading = false;
-
-        }
-
-        async System.Threading.Tasks.Task ProductNumberDataCommand2()
-        {
-            CardsCollection.Clear();
-            CardsCollection = await APIServices.GetProductNumber(Constants.productMenuEndPoint);
             IsMenuRefreshing = false;
 
         }
-
         async System.Threading.Tasks.Task BarChartDataCommand()
         {
             Data = await APIServices.GetBarChartData(Constants.barChartEndpoint);
         }
-
-
-
-
-
 
         private async void ItemSelected()
         {

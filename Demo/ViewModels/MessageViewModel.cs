@@ -78,6 +78,18 @@ namespace Demo.ViewModels
 
         public Command LoadUserDataCommand { get; set; }
 
+        private Command _refreshViewCommand;
+        public Command RefreshViewCommand
+        {
+            get
+            {
+                return _refreshViewCommand ?? (_refreshViewCommand = new Command(async async =>
+                {
+                    await TotalUserDataCommand();
+                }));
+            }
+        }
+
         public MessageViewModel()
         {
             LoadUserDataCommand = new Command(async async => await TotalUserDataCommand());
@@ -89,21 +101,16 @@ namespace Demo.ViewModels
         async System.Threading.Tasks.Task TotalUserDataCommand()
         {
             ItemsCollection = await APIServices.GetMessageData(Constants.messageEndpoint,21);
+            /*createMessageList();*/
 
-           
+
         }
 
-        public void createMessageList()
+        public  void createMessageList()
         {
+            
 
-            var task = TotalUserDataCommand();
-            task.Wait();
-
-
-
-            Console.WriteLine(ItemsCollection.Count);
-
-            foreach (var item in ItemsCollection)
+            foreach (var item in  ItemsCollection)
             {
                 Console.WriteLine(item.sender);
                 Console.WriteLine(item.productId);

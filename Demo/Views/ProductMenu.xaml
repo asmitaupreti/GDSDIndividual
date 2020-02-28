@@ -9,7 +9,7 @@
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <RefreshView IsRefreshing="{Binding IsMenuRefreshing}"
-             Command="{Binding RefreshMenuCommand}">
+             Command="{Binding RefreshViewCommand}">
                 <CollectionView ItemsSource="{Binding CardsCollection}"
                             SelectedItem="{Binding Selection, Mode=TwoWay}"
                             SelectionChangedCommand="{Binding SelectionCommand}"

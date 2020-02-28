@@ -119,7 +119,7 @@ namespace Demo.ViewModels
             result = await APIServices.UpdateStatus(s, Constants.updateUserStatusEndpoint);
             if (result)
             {
-                await Application.Current.MainPage.DisplayAlert("Success", "Product Accepeted", "ok");
+                await Application.Current.MainPage.DisplayAlert("Success", "User Accepeted", "ok");
                 await Application.Current.MainPage.Navigation.PushAsync(new UsersView(3, "Aprroved User"));
             }
             else
@@ -134,7 +134,7 @@ namespace Demo.ViewModels
             result = await APIServices.UpdateStatus(s, Constants.updateUserStatusEndpoint);
             if (result)
             {
-                await Application.Current.MainPage.DisplayAlert("Success", "Product Rejected", "ok");
+                await Application.Current.MainPage.DisplayAlert("Success", "User Rejected", "ok");
                 await Application.Current.MainPage.Navigation.PushAsync(new UsersView(2,"Pending User"));
             }
             else

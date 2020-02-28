@@ -54,13 +54,18 @@
                         <StackLayout Orientation="Vertical">
                             <Frame x:Name="taskFrame" BackgroundColor="White" HasShadow="False" CornerRadius="2" ClassId="{Binding Id}" 
                                HeightRequest="80"  Margin="10" Padding="5">
-                                <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" Spacing="10">
-                                    <Frame HasShadow="False" CornerRadius="20" Margin="10" BackgroundColor="{Binding randomColor}"/>
+                                <StackLayout Orientation="Horizontal" BackgroundColor="Transparent">
+                                    
+                                    <Image Source="userImg.png"/>
+                                    
+                                    
                                     <StackLayout Spacing="5" VerticalOptions="CenterAndExpand" >
-                                        <Label Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" FontSize="16" />
+                                            <Label Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" FontSize="16" />
 
-                                        <Label Text="{Binding IsSeller}" TextColor="Black" FontAttributes="Bold" FontSize="14" />
-                                    </StackLayout>
+                                            <Label Text="{Binding User}" TextColor="Black" FontAttributes="Bold" FontSize="14" />
+                                        </StackLayout>
+                                   
+                                    
                                 </StackLayout>
                             </Frame>
                         </StackLayout>

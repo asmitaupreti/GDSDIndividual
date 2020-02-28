@@ -13,10 +13,10 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid HeightRequest="200">
-                <Image Source="mty.jpg" Aspect="AspectFill" />
-                <Image Source="userimg.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="60" WidthRequest="60" />
-            </Grid>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                <Image Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="200" WidthRequest="200" />
+                <Label Text="Admin" TextColor="White" FontAttributes="Bold" FontSize="26" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </StackLayout>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 
@@ -30,14 +30,14 @@
             <ShellContent Title="Home" ContentTemplate="{DataTemplate local:ProductView}"  />
         </Tab>
     </FlyoutItem>-->
-    <FlyoutItem Title="Hello" Icon="mail.png">
+   <!-- <FlyoutItem Title="Hello" Icon="mail.png">
         <Tab>
-            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MessageView}" Icon="logo.png" />
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MessageView}"  />
         </Tab>
-    </FlyoutItem>
+    </FlyoutItem>-->
     <FlyoutItem Title="Profile" Icon="account.png">
         <Tab>
-            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:UserProfileView}" Icon="logo.png" />
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate local:UserProfileView}"  />
         </Tab>
     </FlyoutItem>
     <!-- <FlyoutItem Title="Total User" Icon="tab_feed.png">

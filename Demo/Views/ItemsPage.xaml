@@ -25,8 +25,8 @@
             </CollectionView>-->
 
             <StackLayout Orientation="Horizontal" BackgroundColor="#2196F3">
-                <Button Text="Menu" HorizontalOptions="FillAndExpand" Clicked="MenuClicked" BackgroundColor="#2196F3"/>
-                <Button Text="Chart" HorizontalOptions="FillAndExpand" Clicked="BarClicked" BackgroundColor="#2196F3"/>
+                <Button Text="Menu" HorizontalOptions="FillAndExpand" Clicked="MenuClicked" TextColor="White" BackgroundColor="#2196F3"/>
+                <Button Text="Chart" HorizontalOptions="FillAndExpand" Clicked="BarClicked" BackgroundColor="#2196F3" TextColor="White"/>
             </StackLayout>
             <ContentView x:Name="body"/>
             

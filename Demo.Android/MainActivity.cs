@@ -27,7 +27,7 @@ namespace Demo.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjE2ODc5QDMxMzcyZTM0MmUzMFJXOFc2SWFwQTJQQ0MwclI1T2JTcU8rakE1UW9ZQUo4OGJWNVpTbU9Iclk9");
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

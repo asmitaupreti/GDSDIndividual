@@ -31,11 +31,11 @@ namespace Demo.Models
             set { SetProperty(ref status, value); }
         }
 
-        private string isSeller;
-        public string IsSeller
+        private string user;
+        public string User
         {
-            get { return isSeller; }
-            set { SetProperty(ref isSeller, value); }
+            get { return user; }
+            set { SetProperty(ref user, value); }
         }
     }
 }
